@@ -15,3 +15,18 @@ class Triangle
   end
 end
 
+if __FILE__ == $0
+  if ARGV.size != 3
+    puts "引数は3つにしましょうね"
+    exit 64
+  end
+
+  sides = ARGV.map(&:to_i)
+
+  if sides.find{|side| side <= 0}
+    puts "辺の長さは正数でお願いします"
+    exit 65
+  end
+
+  puts Triangle.check(*sides)
+end
